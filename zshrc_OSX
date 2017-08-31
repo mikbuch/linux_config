@@ -1,0 +1,188 @@
+#####################
+# zshrc config file #
+#       OS X        #
+# updated: 08.31.17 #
+#####################
+
+
+###############################################################################
+#
+#                     Automatically generated settings
+#
+###############################################################################
+
+# Lines configured by zsh-newuser-install
+HISTFILE=~/.histfile
+HISTSIZE=100000
+SAVEHIST=100000
+bindkey -e
+
+# Appends every command to the history file once it is executed
+setopt inc_append_history
+# Reloads the history whenever you use it
+setopt share_history
+
+# End of lines configured by zsh-newuser-install
+# The following lines were added by compinstall
+zstyle :compinstall filename '/Users/AClab/.zshrc'
+
+autoload -Uz compinit
+compinit
+# End of lines added by compinstall
+
+
+# Use modern completion system
+autoload -Uz compinit
+compinit
+
+zstyle ':completion:*' auto-description 'specify: %d'
+zstyle ':completion:*' completer _expand _complete _correct _approximate
+zstyle ':completion:*' format 'Completing %d'
+zstyle ':completion:*' group-name ''
+zstyle ':completion:*' menu select=2 eval "$(dircolors -b)"
+zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
+zstyle ':completion:*' list-colors ''
+zstyle ':completion:*' list-prompt %SAt %p: Hit TAB for more, or the character to insert%s
+zstyle ':completion:*' matcher-list '' 'm:{a-z}={A-Z}' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=* l:|=*'
+zstyle ':completion:*' menu select=long
+zstyle ':completion:*' select-prompt %SScrolling active: current selection at %p%s
+zstyle ':completion:*' use-compctl false
+zstyle ':completion:*' verbose true
+
+zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
+zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
+
+
+###############################################################################
+#
+#                           User settings
+#
+###############################################################################
+
+# FSL shell settings
+FSLDIR=/usr/local/fsl
+. ${FSLDIR}/etc/fslconf/fsl.sh
+PATH=${FSLDIR}/bin:${PATH}
+export FSLDIR PATH
+
+# MacPorts Installer addition on 2015-10-30_at_15:11:27: adding an appropriate PATH variable for use with MacPorts.
+export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
+
+# Caret
+PATH=/opt/caret/bin_macosx64:${PATH}
+
+# Connectome Workbench
+PATH=/opt/workbench/bin_macosx64:${PATH}
+
+# AFNI main directory
+PATH=$PATH:/Users/AClab/Applications/macosx_10.7_Intel_64/
+
+# FREESURFER
+export FREESURFER_HOME=/Applications/freesurfer
+source $FREESURFER_HOME/SetUpFreeSurfer.sh
+
+# MATLAB -- to be able to use matlab via command line:
+export PATH=$PATH:/Applications/MATLAB_R2013a.app/bin/
+
+# Python-traits install (dependency of nipype)
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
+
+
+# terminal colors
+export CLICOLOR=1
+export LSCOLORS=GxFxCxDxBxegedabagaced
+
+# l alias for listing direcotries
+alias l='ls -CF -l'
+
+#######################
+# Directories aliases.
+alias exp='cd /Users/AClab/Documents/Experiment_2c/'
+alias f='cd /Users/AClab/Documents/mikbuch/data_by_subject'
+alias d='cd /Users/AClab/Downloads'
+alias g='cd /Users/AClab/Documents/mikbuch/git'
+alias h='cd /Users/AClab/'
+alias m='cd /Users/AClab/Documents/mikbuch'
+alias p='cd /Users/AClab/Documents/mikbuch/git/pymri'
+alias t='cd /tmp'
+# alias wd='cd /Users/AClab/Documents/mikbuch/git/pymri/examples/'
+# alias wd='cd /Users/AClab/Documents/mikbuch/resting_state/scipts_rest'
+# alias wd='cd /Users/AClab/Documents/mikbuch/resting_state/scipts_rest/seed_based_GLM/1.0.0'
+# alias wd='cd /Users/AClab/Documents/Experiment_2c/DATA/scripts'
+alias wd='cd /Users/AClab/Documents/Experiment_LP/DATA/data_right-handed_subjects/GK011RZJA/analyzed_data/right_hand/main_exp/mvpa/'
+alias pm='bash /Users/AClab/Documents/mikbuch/git/install_pymri.sh'
+alias pmg='bash /Users/AClab/Documents/mikbuch/git/setup_pymri.sh'
+
+alias 2a='cd /Users/AClab/Documents/Experiment_LP/DATA/scripts'
+alias 2c='cd /Users/AClab/Documents/Experiment_2c/DATA/scripts'
+
+#######################
+# Programs aliases.
+alias common='python /Users/AClab/Documents/mikbuch/git/pymri/pymri/utils/standalone/common_voxels.py'
+alias mass_rename='bash /Users/AClab/Documents/mikbuch/git/chartula/bash/mass_rename/mass_rename.sh'
+alias metric2volume='bash /Users/AClab/Documents/mikbuch/projects/caret/scripts/metric_to_nii_volume/metric_to_nii_volume.sh'
+alias nonzero='python /Users/AClab/Documents/mikbuch/git/pymri/pymri/utils/standalone/count_nonzero.py'
+# alias caret='/opt/caret/bin_macosx64/caret5'
+# alias caret_command='/opt/caret/bin_macosx64/caret_command'
+alias T1='fslview T1w.nii.gz T1w_brain.nii.gz -l Copper -t 0.5 -b 0.0,150'
+alias T2='fslview T2w.nii.gz T2w_brain.nii.gz -l Copper -t 0.5 -b 0.0,150'
+
+
+# Vim ctrl-s save utility
+# source: http://vim.wikia.com/wiki/Map_Ctrl-S_to_save_current_or_new_files
+stty -ixon
+
+##############
+#
+# Python SPSS
+#
+# The following worked before 16th of May 2017, then it stopped an the next,
+# uncommented line had to be applied.
+# export DYLD_LIBRARY_PATH=/usr/local/lib/python2.7/site-packages/savReaderWriter/spssio/macos
+#
+# This works now:
+export DYLD_LIBRARY_PATH=/usr/local/lib/python2.7/site-packages/savReaderWriter-3.4.2-py2.7.egg/savReaderWriter/spssio/macos
+# Also this was suggested to be added:
+export LC_ALL=en_US.UTF-8
+# Source:
+# https://bitbucket.org/fomcl/savreaderwriter/issues/16/dylibs-on-os-x-ibm-problem
+
+##############
+#
+# AFNI SUMA
+#
+# https://afni.nimh.nih.gov/pub/dist/doc/htmldoc/background_install/install_instructs/steps_mac.html
+#
+# AFNI needs DYLD to be set like that:
+# export DYLD_LIBRARY_PATH='/opt/X11/lib/flat_namespace'
+# HOWEVER it is commented since Python's SPSS script needs it elsewere, namely: /usr/local/lib/python2.7/site-packages/savReaderWriter-3.4.2-py2.7.egg/savReaderWriter/spssio/macos
+#
+export PYTHONPATH='/sw/lib/qt4-mac/lib/python2.7/site-packages'
+
+
+################
+#
+# COREUTILS OS X
+# 2017_05_23
+# This causes ls to lost it's color functionality.
+#
+# For sort command
+#
+# https://unix.stackexchange.com/a/4682
+#
+# This has to be on top
+#
+# export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
+# export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
+
+################
+#
+# TMUXINATOR
+#
+# Define default editor:
+export EDITOR="vim"
+
+export LDFLAGS="-L/usr/local/opt/openssl/lib"
+export CPPFLAGS="-I/usr/local/opt/openssl/include"
+export PKG_CONFIG_PATH="/usr/local/opt/openssl/lib/pkgconfig"
