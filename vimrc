@@ -270,7 +270,7 @@ command -nargs=0 -bar Update if &modified
                            \|    endif
                            \|endif
 nnoremap <silent> <C-S> :<C-u>Update<CR>
-" inoremap <Esc><C-S> :<C-u>Update<CR>
+inoremap <silent> <C-S> <Esc>:<C-u>Update<CR>
 "
 "=======================
 " end of SAVING utility
