@@ -1,0 +1,38 @@
+source ~/antigen.zsh
+
+# Load the oh-my-zsh's library.
+antigen use oh-my-zsh
+
+# Bundles from the default repo (robbyrussell's oh-my-zsh).
+antigen bundle git
+antigen bundle heroku
+antigen bundle pip
+antigen bundle lein
+antigen bundle command-not-found
+
+# Syntax highlighting bundle.
+antigen bundle zsh-users/zsh-syntax-highlighting
+
+# Load the theme.
+antigen theme BrandonRoehl/zsh-clean
+
+# Tell Antigen that you're done.
+antigen apply
+
+# Display settings alias (three displays)
+alias x='xrandr --output DP-2-3 --mode 1920x1080 --pos 0x0 --output DP-2-2 --mode 1920x1080 --pos 1920x0 --output eDP-1 --mode 1920x1080 --pos 3840x0'
+
+# Paths exports and global variables
+export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games
+export JAVA_HOME=/opt/jdk/jdk1.8.0_172
+export PATH=$PATH:/opt/apache-maven-3.5.3/bin
+export PATH=$JAVA_HOME/bin:$PATH
+#export PATH=$PATH:/opt/gradle-4.8/bin
+export PATH=$PATH:/opt/gradle-5.4.1/bin
+export PATH=$PATH:/opt/spring-2.0.2.RELEASE/bin
+
+# Programs aliases
+alias skype='env PULSE_LATENCY_MSEC=30 skypeforlinux'
+alias dropbox='/home/mbuch/.dropbox-dist/dropboxd &'
+alias e='evince'
+alias pg='sudo python /usr/local/lib/python3.7/site-packages/pgadmin4/pgAdmin4.py'

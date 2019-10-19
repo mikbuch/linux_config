@@ -1,0 +1,16 @@
+# Enable scrolling with mouse scroll.
+set-option -g mouse on
+
+# Theme pack.
+source-file "${HOME}/.tmux-themepack/powerline/block/green.tmuxtheme"
+
+#256 colors
+set -g default-terminal "screen-256color"
+
+# Vi copy mode navigation
+set-window-option -g mode-keys vi
+bind-key -T copy-mode-vi 'v' send -X begin-selection
+bind-key -T copy-mode-vi 'y' send -X copy-selection-and-cancel
+
+# https://unix.stackexchange.com/a/131187/258734
+bind -T copy-mode-vi y send-keys -X copy-pipe-and-cancel 'xclip -in -selection clipboard'

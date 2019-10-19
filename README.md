@@ -1,10 +1,5 @@
-# linux_config
+# Mikbuch's linux configuration files
 
-mikbuch's configuration files for linux (arch and debian, as well as OS X).
+My configuration files for linux: Archlinux, Debian, and macOS.
 
-On a daily basis I use xterm enhanced with tmux window manager.
-My text editor is vim, however, recently I switched to atom with vim-mode-plus.
-My primary shell is zsh (oh-my-zsh, https://github.com/robbyrussell/oh-my-zsh).
-
-For file management I choose Double Commander (https://doublecmd.sourceforge.io/).
-My web browser is quetebrowser (https://qutebrowser.org/), alternatively firefox.
+Most recent configuration files I keep on my Dropbox. Here information are stored for backup and as a preview for the general public.
